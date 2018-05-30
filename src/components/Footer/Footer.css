@@ -1,0 +1,19 @@
+.Footer {
+  background: grey;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+}
+.Footer-Image {
+
+}
+a{
+  color: rgb(65,74,89);
+  display: inline-block;
+  margin: 0 2rem;
+}
+a.active {
+  color: whitesmoke;
+}

@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+  flex: 1;
+  flex-direction: column;
+}
+
+.App-Body {
+  height: 80
+}
