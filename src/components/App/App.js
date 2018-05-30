@@ -20,7 +20,7 @@ const notFound = () => (
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router >
         <div className="App">
           <AppBar/>
           <div className="App-Body">

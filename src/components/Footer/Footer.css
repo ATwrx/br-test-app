@@ -1,19 +1,33 @@
 .Footer {
-  background: grey;
+  background: rgb(42,42,42);
   position: fixed;
   left: 0;
   bottom: 0;
+  padding: 10px 0;
+  flex: 1;
+  flex-grow: 1;
   width: 100%;
-
+  height: 50px;
 }
-.Footer-Image {
 
-}
-a{
-  color: rgb(65,74,89);
+.Footer a {
+  color: rgb(151,151,151);
+  margin: 0 1em;
   display: inline-block;
-  margin: 0 2rem;
+  width: 50%;
+  margin: 0 0;
+  text-decoration: none;
 }
-a.active {
-  color: whitesmoke;
+
+.Footer a.active {
+  color: rgb(255,255,255);
+}
+
+.Footer-Img {
+  max-height: 1.5em;
+}
+
+.Footer p {
+  font-size: 10px;
+  margin: 0px 2px;
 }

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 import './AppBar.css';
+import {icon_back, icon_forward, icon_refresh, icon_map} from '../../assets/images';
 
 const LunchTymeBar = () => (
   <div>
@@ -28,10 +29,13 @@ const InternetsBar = () => (
 const Header = () => (
   <div>
     <Link to="/internets">
-      Internets
+      <img className='AppBar-Img' src={icon_back} alt='Back button.'/>
     </Link>
     <Link to="/lunchtyme">
-      LunchTyme
+      <img className='AppBar-Img' src={icon_refresh} alt='Refresh button.'/>
+    </Link>
+    <Link to="/lunchtyme">
+      <img className='AppBar-Img' src={icon_forward} alt='Forward button.'/>
     </Link>
   </div>
 )
@@ -39,9 +43,9 @@ const Header = () => (
 export default class AppBar extends Component {
   render() {
     return (
-     <div className="AppBar" >
-      <Header/> 
-     </div> 
+      <div className="AppBar">
+        <Header/>
+      </div>
     );
   }
-};
+}

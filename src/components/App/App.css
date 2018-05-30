@@ -1,9 +1,12 @@
 .App {
   text-align: center;
+  background: blue;
   flex: 1;
   flex-direction: column;
+  width: 100%;
+  height: auto;
 }
-
 .App-Body {
-  height: 80
+  color: black;
+  height: auto;
 }
