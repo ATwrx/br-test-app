@@ -1,5 +1,7 @@
-import App from './App/App';
-import AppBar from './AppBar/AppBar';
-import Footer from './Footer/Footer';
+import { App } from './App';
+import { AppBar } from './AppBar';
+import { Footer } from './Footer';
+import { AppRouter } from './AppRouter';
+import { LunchTymeFeed } from './LunchTymeFeed';
 
-export {App, AppBar, Footer};
+export {App, AppBar, AppRouter, Footer, LunchTymeFeed};

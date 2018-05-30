@@ -38,6 +38,7 @@ const Header = () => (
       <img className='AppBar-Img' src={icon_forward} alt='Forward button.'/>
     </Link>
   </div>
+
 )
 
 export default class AppBar extends Component {
