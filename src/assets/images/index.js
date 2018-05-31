@@ -16,4 +16,4 @@ export {
   icon_map,
   icon_internet,
   icon_lunch
-}
+}; 
