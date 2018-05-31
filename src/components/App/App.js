@@ -4,16 +4,17 @@ import {BrowserRouter as Router, NavLink, Link, Switch, Route} from 'react-route
 import './App.css';
 import {AppBar, Footer, AppRouter, LunchTymeFeed} from '../../components';
 
+
 const notFound = () => (
   <h1>404: Page not found.</h1>
 );
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
-          <AppBar/>
+          <AppBar />
           <AppRouter />
           <Footer/>
         </div>
@@ -21,5 +22,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
