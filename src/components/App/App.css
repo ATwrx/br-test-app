@@ -1,12 +1,19 @@
+html,
+body {
+  font-family: 'Roboto';
+  height: 100%;
+  margin: 0;
+}
+
 .App {
+  display: flex;
+  margin: 0;
+  height: 100%;
+  flex-direction: column;
   text-align: center;
   background: blue;
-  flex: 1;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-}
-.App-Body {
-  color: black;
-  height: auto;
+};
+
+.App > * {
+  flex: 1 1 auto;
 }

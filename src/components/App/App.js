@@ -15,7 +15,7 @@ export default class App extends Component {
       <Router>
         <div className="App">
           <AppBar />
-          <AppRouter />
+          <AppRouter className='App-Body'/>
           <Footer/>
         </div>
       </Router>

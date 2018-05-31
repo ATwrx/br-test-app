@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {withRouter} from 'react-router';
 import {Switch, Route} from 'react-router-dom';
 
 import './AppRouter.css';
-import {LunchTymeFeed} from '../../components'
+import {LunchTymeFeed,LunchTymeDetails} from '../../components'
 
 const notFound = () => (
   <h2>
@@ -14,7 +13,7 @@ const notFound = () => (
 const routes = {
   "lunchTyme": ({match}) => (match.params.restaurant === undefined
     ? <LunchTymeFeed/>
-    : <h2>Restaurant: {match.params.restaurant}</h2>),
+    : <LunchTymeDetails restaurant={match.params.restaurant} /> ),
   "internets": ({match, history}) => (match.params.url === undefined
     ? <h2>BR contact page</h2>
     : <h2>URL: {match.params.url}</h2>),
@@ -26,12 +25,14 @@ const routes = {
 export default class AppRouter extends Component {
   render() {
     return (
-      <Switch className='App-Body'>
-        <Route exact path='/' render={routes.home}/>
-        <Route path="/lunchtyme/:restaurant?" render={routes.lunchTyme}/>
-        <Route path="/internets/:url?" render={routes.internets}/>
-        <Route component={notFound}/>
-      </Switch>
+      <div className='content'>
+        <Switch>
+          <Route exact path='/' render={routes.home}/>
+          <Route path="/lunchtyme/:restaurant?/:location?" render={routes.lunchTyme} replace/>
+          <Route path="/internets/:url?" render={routes.internets}/>
+          <Route component={notFound}/>
+        </Switch>
+      </div>
     )
   }
 };

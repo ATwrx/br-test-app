@@ -3,12 +3,7 @@ import {Link} from 'react-router-dom';
 import {withRouter} from 'react-router';
 
 import './AppBar.css';
-import {
-  icon_back,
-  icon_forward,
-  icon_refresh,
-  icon_map,
-} from '../../assets/images';
+import {icon_back, icon_forward, icon_refresh, icon_map} from '../../assets/images';
 
 const LunchTymeBar = () => (
   <div>
@@ -20,33 +15,31 @@ const LunchTymeBar = () => (
 const InternetsAppBar = () => (
   <div className="Internets-AppBar">
     <Link to="/">
-      <img className="AppBar-Img" src={icon_back} alt="Back button." />
+      <img className="AppBar-Img" src={icon_back} alt="Back button."/>
     </Link>
     <Link to="/lunchtyme">
-      <img className="AppBar-Img" src={icon_refresh} alt="Refresh button." />
+      <img className="AppBar-Img" src={icon_refresh} alt="Refresh button."/>
     </Link>
     <Link to="/">
-      <img className="AppBar-Img" src={icon_forward} alt="Forward button." />
+      <img className="AppBar-Img" src={icon_forward} alt="Forward button."/>
     </Link>
   </div>
 );
 
-const LunchTymeAppBar =(props) => (
+const LunchTymeAppBar = (props) => (
   <div className='AppBar'>
-    <h1>Lunch Tyme</h1>
-    <Link to={props.match.params}>
-      <img src={icon_map} />
+    <Link to='/lunchtyme'>
+      <img src={icon_back} alt='Link to go back to the restaurant list'/>
     </Link>
+    <p>Lunch Tyme</p>
+    <img className='AppBar-Img' src={icon_map}/>
   </div>
 );
 
 class AppBarUnwrapped extends Component {
   render() {
     const {match} = this.props;
-    console.log(match)
-    return(
-      <LunchTymeAppBar match={match}/>
-    )
+    return (<LunchTymeAppBar match={match}/>)
   }
 }
 
