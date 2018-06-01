@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 import './LunchTyme.css';
-import Details from './Details.js';
+import { Details } from './Details';
 
 const dataUrl = 'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.js' +
     'on';

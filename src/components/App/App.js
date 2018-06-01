@@ -8,19 +8,24 @@ export default class App extends Component {
   state = {
     onLunchFeed: false
   }
-  handleOnLunchFeed = () => {
+
+  onFeedToggle = () => {
     this.setState({
       onLunchFeed: !this.state.onLunchFeed
     })
-    console.log('action fired')
+    console.log(`LunchFeed = ${this.state.onLunchFeed}`)
   }
+
   render() {
     return (
       <Router>
         <div className='App'>
-          <AppBar goingToFeed={this.handleOnLunchFeed}/>
-          <AppRouter goingToFeed={this.handleOnLunchFeed}/>
-          <Footer goingToFeed={this.handleOnLunchFeed}/>
+          <AppBar
+           onFeedToggle={this.onFeedToggle} />
+          <AppRouter
+           onFeedToggle={this.onFeedToggle}/>
+          <Footer
+           onFeedToggle={this.onFeedToggle}/>
         </div>
       </Router>
     );

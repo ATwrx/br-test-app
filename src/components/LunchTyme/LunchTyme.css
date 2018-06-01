@@ -1,5 +1,9 @@
-.Restaurant > img {
-  height: 150px;
+.Restaurant-Feed{
   width: 100%;
 }
 
+.Restaurant > img {
+  height: 150px;
+  width: 100%;
+  max-width: 350px;
+}

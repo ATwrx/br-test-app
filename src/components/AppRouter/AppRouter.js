@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
 import {Switch, Route} from 'react-router-dom';
+import { Header } from 'semantic-ui-react';
 
 import './AppRouter.css';
 import {LunchTyme} from '../../components'
 
 const notFound = () => (
-  <h2>
-    <b>404</b>
-    : Page not found.
-  </h2>
+  <Header as='h1' content='404: Page not found.' textAlign='center' />
 )
 const routes = {
   "lunchTyme": ({match}) => (match.params.id === undefined 
