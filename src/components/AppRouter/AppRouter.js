@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Switch, Route} from 'react-router-dom';
 
 import './AppRouter.css';
-import {LunchTymeFeed,LunchTymeDetails} from '../../components'
+import {LunchTyme} from '../../components'
 
 const notFound = () => (
   <h2>
@@ -11,9 +11,9 @@ const notFound = () => (
   </h2>
 )
 const routes = {
-  "lunchTyme": ({match}) => (match.params.restaurant === undefined
-    ? <LunchTymeFeed/>
-    : <LunchTymeDetails restaurant={match.params.restaurant} /> ),
+  "lunchTyme": ({match}) => (match.params.id === undefined 
+    ? <LunchTyme viewingFeed={true} /> 
+    : <LunchTyme viewingFeed={false} dataId={match.params.id} /> ),
   "internets": ({match, history}) => (match.params.url === undefined
     ? <h2>BR contact page</h2>
     : <h2>URL: {match.params.url}</h2>),
@@ -28,7 +28,7 @@ export default class AppRouter extends Component {
       <div className='content'>
         <Switch>
           <Route exact path='/' render={routes.home}/>
-          <Route path="/lunchtyme/:restaurant?/:location?" render={routes.lunchTyme} replace/>
+          <Route path="/lunchtyme/:id?" render={routes.lunchTyme} replace />
           <Route path="/internets/:url?" render={routes.internets}/>
           <Route component={notFound}/>
         </Switch>

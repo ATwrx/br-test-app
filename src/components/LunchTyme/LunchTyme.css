@@ -1,0 +1,10 @@
+.Feed {
+  flex: 1;
+  flex-grow: 3;
+  overflow-y: scroll;
+}
+.Restaurant > img {
+  height: 150px;
+  width: 100%;
+}
+
