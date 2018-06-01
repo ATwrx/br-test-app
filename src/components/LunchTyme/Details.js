@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './LunchTyme.css'
 export default class Details extends Component {
   render(){
     const {data} = this.props;

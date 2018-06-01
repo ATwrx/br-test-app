@@ -25,7 +25,7 @@ const routes = {
 export default class AppRouter extends Component {
   render() {
     return (
-      <div className='content'>
+      <div className='AppRouter'>
         <Switch>
           <Route exact path='/' render={routes.home}/>
           <Route path="/lunchtyme/:id?" render={routes.lunchTyme} replace />

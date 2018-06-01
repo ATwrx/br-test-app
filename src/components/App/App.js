@@ -1,22 +1,26 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, NavLink, Link, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 import './App.css';
-import {AppBar, Footer, AppRouter, LunchTymeFeed} from '../../components';
-
-
-const notFound = () => (
-  <h1>404: Page not found.</h1>
-);
+import {AppBar, Footer, AppRouter} from '../../components';
 
 export default class App extends Component {
+  state = {
+    onLunchFeed: false
+  }
+  handleOnLunchFeed = () => {
+    this.setState({
+      onLunchFeed: !this.state.onLunchFeed
+    })
+    console.log('action fired')
+  }
   render() {
     return (
       <Router>
-        <div className="App">
-          <AppBar />
-          <AppRouter className='App-Body'/>
-          <Footer/>
+        <div className='App'>
+          <AppBar goingToFeed={this.handleOnLunchFeed}/>
+          <AppRouter goingToFeed={this.handleOnLunchFeed}/>
+          <Footer goingToFeed={this.handleOnLunchFeed}/>
         </div>
       </Router>
     );
