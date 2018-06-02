@@ -1,0 +1,2 @@
+These components didn't make it to the final version.
+Saved them in case they were ever needed again.

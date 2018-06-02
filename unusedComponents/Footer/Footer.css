@@ -1,0 +1,30 @@
+.Footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: rgb(42,42,42);
+  padding: 10px 0;
+  width: 100%;
+}
+
+.Footer a {
+  color: rgb(151,151,151);
+  margin: 0 1em;
+  display: inline-block;
+  width: 50%;
+  margin: 0 0;
+  text-decoration: none;
+}
+
+.Footer a.active {
+  color: rgb(255,255,255);
+}
+
+.Footer-Img {
+  max-height: 1.5em;
+}
+
+.Footer p {
+  font-size: 10px;
+  margin: 0px 2px;
+}

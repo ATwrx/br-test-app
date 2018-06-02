@@ -18,14 +18,10 @@ export default class LunchTyme extends Component {
       return results.json();
     }).then(data => {
       let dataArr = [];
-      let restaurants = data
-        .restaurants
-        .map(restaurant => {
-          let formattedName = restaurant
-            .name
-            .replace(/ +/g, '-');
-          dataArr.push(restaurant);
-          return (
+      let restaurants = data.restaurants.map(restaurant => {
+        let formattedName = restaurant.name.replace(/ +/g, '-');
+        dataArr.push(restaurant);
+        return (
             <Link
               to={`/${dataArr.length - 1}`}
               className="Restaurant"
