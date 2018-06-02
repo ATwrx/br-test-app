@@ -20,7 +20,7 @@ export default class AppBar extends Component {
     const {backButton} = this.props;
     return (
       <div className="AppBar">
-        {conditionalBackButton(backButton)}
+        {conditionalBackBtn(backButton)}
         <Header variant="h2" inverted>
           Lunch Tyme
         </Header>

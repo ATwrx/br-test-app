@@ -1,9 +1,22 @@
-.Restaurant-Feed{
+.RestaurantFeed{
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  z-index: 1;
+}
+
+.Restaurant {
   width: 100%;
+  max-width: 450px;
 }
 
 .Restaurant > img {
   height: 150px;
   width: 100%;
-  max-width: 350px;
+}
+
+.DetailPanel {
+  z-index: 2;
 }

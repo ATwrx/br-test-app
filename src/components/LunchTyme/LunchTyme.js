@@ -69,6 +69,7 @@ export default class LunchTyme extends Component {
                   <Details
                    data={feed_data[match.params.id]} 
                    closeTab={this.toggleTabOpen}
+                   className='Details'
                   />
                 </React.Fragment>
               )}
