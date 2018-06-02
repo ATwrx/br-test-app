@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {Loader} from 'semantic-ui-react';
 
 import './LunchTyme.css';
-import { Details } from './Details';
+import { Details } from '../../components';
 
-const dataUrl = 'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.js' +
-    'on';
+const dataUrl = 'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json';
 
 export default class LunchTyme extends Component {
   state = {
@@ -27,10 +27,12 @@ export default class LunchTyme extends Component {
           dataArr.push(restaurant);
           return (
             <Link
-              to={`/lunchtyme/${dataArr.length - 1}`}
+              to={`/${dataArr.length - 1}`}
               className="Restaurant"
+              state={ this.state.restaurantData }
               id={formattedName}
-              key={dataArr.length - 1}>
+              key={dataArr.length - 1}
+            >
               <h2>{restaurant.name}</h2>
               <img
                 className="FeedImage"
@@ -44,13 +46,14 @@ export default class LunchTyme extends Component {
   }
 
   render() {
-    const {restaurantData} = this.state;
+    const {restaurantData, feedComponents} = this.state;
+    const {dataId, toggleOnFeed} = this.props;
     return (
       <div className='RestaurantFeed'>
-        {this.props.viewingFeed === true
-          ? this.state.feedComponents
-          : <Details data={restaurantData[this.props.dataId]}/>
-}
+        { dataId 
+            ? <Details data={restaurantData[dataId]} toggleOnFeed={toggleOnFeed} /> 
+            :  (restaurantData.length === 0 ? <Loader active /> : feedComponents )}
+            
       </div>
     );
   }

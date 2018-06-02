@@ -1,8 +1,13 @@
 import {App} from './App';
 import {AppBar} from './AppBar';
-import {Footer} from './Footer';
 import {AppRouter} from './AppRouter';
 import {LunchTyme} from './LunchTyme';
-import {Internets} from './Internets';
+import {Details} from './Details';
 
-export {App, AppBar, AppRouter, Footer, LunchTyme, Internets};
+// Sometimes it pays to read the \
+// instructions carefully the    \
+// first time
+// import {Internets} from './Internets';
+// import {Footer} from './Footer';
+
+export {App, AppBar, AppRouter, LunchTyme, Details};
