@@ -1,5 +1,7 @@
 .RestaurantFeed{
-  max-width: 100%;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -10,6 +12,7 @@
 .Restaurant {
   width: 100%;
   max-width: 450px;
+  flex-grow: 20;
 }
 
 .Restaurant > img {
