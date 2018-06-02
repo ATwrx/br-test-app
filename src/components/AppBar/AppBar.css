@@ -14,12 +14,11 @@
   color: #FFFFFF;
 }
 
-.AppBar img {
-  max-height: 25px;
+.BackButton, .AppBar img {
+  height: 25px;
   margin: 0 15px;
 }
 
-.fill {
- height: 25px;
- margin: 0 15px;
+.BackButton {
+  width: 13px;
 }

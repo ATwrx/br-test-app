@@ -1,36 +1,26 @@
 import React, {Component} from 'react';
 import {Switch, Route} from 'react-router-dom';
 import {Header} from 'semantic-ui-react';
-
 import './AppRouter.css';
-import {AppBar, LunchTyme} from '../../components';
+import {LunchTyme} from '../../components';
+
+//  This component is mainly here for in case the app ever needs to grow future
+// growth of the app
+
+const routes = {
+  feed: ({match}) => match.params.id === undefined
+    ? (<LunchTyme/>)
+    : (<LunchTyme dataId={match.params.id}/>),
+  notFound: () => (<Header as="h1" content="404: Page not found." textAlign="center"/>)
+};
 
 export default class AppRouter extends Component {
-  routes = {
-    appBar: ({match}) =>
-      match.params.id === undefined ? (
-        <AppBar onFeed={true} />
-      ) : (
-        <AppBar onFeed={false} />
-      ),
-    feed: ({match}) =>
-      match.params.id === undefined ? (
-        <LunchTyme />
-      ) : (
-        <LunchTyme dataId={match.params.id} />
-      ),
-    notFound: () => (
-      <Header as="h1" content="404: Page not found." textAlign="center" />
-    ),
-  };
-
   render() {
     return (
       <div className="AppRouter">
-        <Route render={this.routes.appBar} forceRefresh={true} />
         <Switch>
-          <Route path="/:id?" render={this.routes.feed} replace />
-          <Route render={this.routes.notFound} />
+          <Route path="/" render={routes.feed} replace/>
+          <Route render={routes.notFound}/>
         </Switch>
       </div>
     );
