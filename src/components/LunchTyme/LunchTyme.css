@@ -5,16 +5,11 @@
   flex-direction: row;
   flex-wrap: wrap;
   flex-grow: 2;
-  justify-content: center;
-}
+  justify-content: center; }
+  .RestaurantFeed .Restaurant {
+    display: flex;
+    height: 150px; }
 
-.Restaurant {
-  display: flex;
-  height: 150px;
-}
-
-@media only screen and (min-width: 600) {
+@media only screen and (max-width: 600) {
   .Restaurant {
-    height: 350px;
-  }
-}
+    height: 350px; } }
