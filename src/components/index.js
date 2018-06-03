@@ -4,9 +4,7 @@ import {AppRouter} from './AppRouter';
 import {LunchTyme} from './LunchTyme';
 import {Details} from './Details';
 
-// Sometimes it pays to read the \
-// instructions carefully the    \
-// first time
+// These components can be found in /spares
 // import {Internets} from './Internets';
 // import {Footer} from './Footer';
 
