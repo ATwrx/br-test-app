@@ -1,0 +1,9 @@
+.RestaurantFeed {
+  min-width: 300px;
+  margin: 0 auto;
+  display: grid;
+  grid-column: 300px 300px;
+  .Restaurant {
+    height: 150px;
+  }
+}

@@ -1,0 +1,20 @@
+$font-stack: 'Avenir Next Demi Bold', 'Roboto', 'sans-serif';
+
+tml,
+body {
+  font-family: $font-stack;
+  height: 100%;
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  margin: 0;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+};
+
+.App > * {
+  flex: 1 1 auto;
+}

@@ -1,18 +1,15 @@
-html,
+tml,
 body {
-  font-family: 'Roboto';
+  font-family: "Avenir Next Demi Bold", "Roboto", "sans-serif";
   height: 100%;
-  margin: 0;
-}
+  margin: 0; }
 
 .App {
   display: flex;
   margin: 0;
   height: 100%;
   flex-direction: column;
-  text-align: center;
-};
+  text-align: center; }
 
 .App > * {
-  flex: 1 1 auto;
-}
+  flex: 1 1 auto; }
