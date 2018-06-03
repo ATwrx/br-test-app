@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {Header} from 'semantic-ui-react';
+import {Header, Button, Icon} from 'semantic-ui-react';
 import './AppBar.css';
 
-import {icon_back, icon_map} from '../../assets';
+import {icon_map} from '../../assets';
 
 function conditionalBackBtn(bool) {
-   return (
-      bool
-      ? <Link to="/" className='BackButton'>
-          <img src={icon_back} alt='Go back on mobile. Close tab on Desktop' />
-        </Link> 
-      : <div className="BackButton"/>
-    )
+  return (bool
+    ? <Link to="/" className='BackButton'>
+        <Icon name='chevron left' size='large' />
+      </Link>
+    : <div className="BackButton"/>)
 };
 
 export default class AppBar extends Component {
@@ -21,10 +19,12 @@ export default class AppBar extends Component {
     return (
       <div className="AppBar">
         {conditionalBackBtn(backButton)}
-        <Header variant="h2" inverted>
+        <h1 className='AppBarHeader' content='Lunch Tyme' inverted>
           Lunch Tyme
-        </Header>
-        <img src={icon_map} alt="Map icon."/>
+        </h1>
+        <a onClick=''>
+          <img src={icon_map} alt="Map icon."/>
+        </a>
       </div>
     );
   }

@@ -8,18 +8,17 @@ import {LunchTyme} from '../../components';
 // growth of the app
 
 const routes = {
-  feed: ({match}) => match.params.id === undefined
-    ? (<LunchTyme/>)
-    : (<LunchTyme dataId={match.params.id}/>),
-  notFound: () => (<Header as="h1" content="404: Page not found." textAlign="center"/>)
+  feed: () => (<LunchTyme />),
+  notFound: () => (<Header as='h1' content='404: Page not found.' textAlign='center'/>)
 };
 
 export default class AppRouter extends Component {
   render() {
     return (
-      <div className="AppRouter">
+      <div className='AppRouter'>
         <Switch>
-          <Route path="/" render={routes.feed} replace/>
+          <Route exact path="/" render={routes.feed} />
+          <Route path='/restaurant' render={routes.feed} />
           <Route render={routes.notFound}/>
         </Switch>
       </div>

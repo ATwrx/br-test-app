@@ -1,25 +1,20 @@
-.RestaurantFeed{
-  width: 100%;
-  max-width: 960px;
+.RestaurantFeed {
+  min-width: 300px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-  z-index: 1;
+  flex-grow: 2;
+  justify-content: center;
 }
 
 .Restaurant {
-  width: 100%;
-  max-width: 450px;
-  flex-grow: 20;
-}
-
-.Restaurant > img {
+  display: flex;
   height: 150px;
-  width: 100%;
 }
 
-.DetailPanel {
-  z-index: 2;
+@media only screen and (min-width: 600) {
+  .Restaurant {
+    height: 350px;
+  }
 }
