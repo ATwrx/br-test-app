@@ -1,37 +1,51 @@
-$top-margin : 50px;
-
-.DetailsDrawer {
-  margin-top: $top-margin;
-  background: #FFF;
-  ul {
+$topbar-height: 50px;
+$white: #FFF;
+$green: #43E895;
+.FakeBar {
+  background: $green;
+  float: right;
+  width: 100%;
+  height: $topbar-height;
+  a {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .DetailsMap {
-    height: 180px;
-  }
-  .DetailsHeaders {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    height: 60px;
-    background: #43E895;
-    color: #FFF;
-    padding: 16px 12px;
-    vertical-align: center;
-    font-size: 16px;
-  }
-  .DetailsSubheader {
-    display: block;
-    text-align: left;
-    font-size: 12px;
+    padding-top: 18px;
+    padding-left: 10px;
+    color: $white;
   }
 }
-.DetailsDrawerOverlay {
-  margin-top: $top-margin;
+
+.DetailsMap {
+  height: 180px;
+  margin-top: 15px;
+  background: $white;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 0;
+  li {
+    margin: 12px 0 0 12px;
+  }
+}
+
+.DetailsHeaders {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 60px;
+  background: $green;
+  color: $white;
+  padding: 16px 12px;
+  vertical-align: center;
+  font-size: 16px;
+}
+
+.DetailsSubheader {
+  display: block;
+  text-align: left;
+  font-size: 12px;
 }

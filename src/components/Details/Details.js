@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
+import {Icon} from 'semantic-ui-react';
 import Drawer from 'react-motion-drawer';
 import './Details.css';
 
@@ -9,72 +10,73 @@ import './Details.css';
 // be added using the same pattern.
 
 export default class Details extends Component {
-  state = {
-    hasOpened: false,
-    hasClosed: false,
-    currentlyOpen: false
-  };
-
-  componentDidMount() {
-    this.props.toggle() &&    
-    this.setState({hasOpened: true}) 
-  };
+  componentDidMount() { this.props.open() };
+  componentWillUnmount() { this.props.close() }
 
   componentWillUpdate(nextProps) {
-    this.props.data.name !== nextProps.data.name
-     && this.state.hasOpened === false 
-     && this.props.toggle();
+    this.props.data !== nextProps.data
+     && this.props.open()
   };
 
-  //NOTE: Drawer's onChange={...} is required.
-  // It calls a function everytime 
   render() {
-    const {data, isOpen, toggle} = this.props;
-    return (data === undefined || data === null
-      ? (<Redirect to="/" />) 
-      : (<Drawer 
-          className="DetailsDrawer"
-          overlayClassName="DetailsDrawerOverlay"
-          overlayColor={'rgba(0,0,0,0)'}
-          zIndex="10"
-          open={isOpen} 
-          onChange={() => {}} >
-          { val => <React.Fragment>
-            <div className="DetailsMap">Map goes here</div>
-            <div className="DetailsHeaders">
-              <h4>
-                {data.name}
-                <span className="DetailsSubheader">
-                  {data.category}
-                </span>
-              </h4>
-            </div>
+    const {data, isOpen, open, close} = this.props;
+    return (data === null || data === undefined
+      ? (<Redirect to={{
+          pathname: '/',
+          state: {
+            drawerOpen: false
+          }}
+        }/>)
+      : (
+        <Drawer
+          open={isOpen}
+          drawerStyle={{background: '#FFF'}}
+          overlayColor={'rgb(0,0,0,0)'}
+          onChange={(val) => {
+          val
+            ? open()
+            : close()
+        }}>
 
-            <ul className="DetailsInfo">
+          <div className="FakeBar">
+            <a onClick={close} className='BackButton'>
+              <Icon name='chevron left' size='large'/>
+            </a>
+          </div>
+          <div className="DetailsMap">Map goes here</div>
+          <div className="DetailsHeaders">
+            <h4>
+              {data.name}
+              <span className="DetailsSubheader">
+                {data.category}
+              </span>
+            </h4>
+          </div>
+
+          <ul className="DetailsInfo">
+            <li>
+              <div>
+                {data.location.address}
+              </div>
+              <div>
+                {`${data.location.city}, ${data.location.state} ${data.location.postalCode}`}
+              </div>
+            </li>
+
+            {data.contact !== null && <React.Fragment>
               <li>
-                <div>
-                  {data.location.address}
-                </div>
-                <div>
-                  {`${data.location.city}, ${data.location.state} ${data.location.postalCode}`}
-                </div>
+                <a href={`tel:${data.contact.phone}`}>
+                  {data.contact.formattedPhone}
+                </a>
               </li>
 
-              {data.contact !== null && <React.Fragment>
-                <li>
-                  <a href={`tel:${data.contact.phone}`}>
-                    {data.contact.formattedPhone}
-                  </a>
-                </li>
-
-                {data.contact.twitter !== undefined && <li>
-                  <a href={`https://twitter.com/${data.contact.twitter}`}>
-                    @{data.contact.twitter}
-                  </a>
-                </li>}
-              </React.Fragment>}
-            </ul>
-         </React.Fragment>}
+              {data.contact.twitter !== undefined && <li>
+                <a href={`https://twitter.com/${data.contact.twitter}`}>
+                  @{data.contact.twitter}
+                </a>
+              </li>}
+            </React.Fragment>}
+          </ul>
         </Drawer>
       ))
   }

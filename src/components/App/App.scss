@@ -1,21 +1,39 @@
 $font-stack: 'Avenir Next Demi Bold', 'Roboto', 'sans-serif';
+$small-break: 780px;
+$large-break: 1400px;
+$white: #FFF;
+$topbar-height: 50px;
 
-tml,
+html,
 body {
   font-family: $font-stack;
   height: 100%;
-  margin: 0;
   padding: 0;
+  margin: 0 auto;
+  .App {
+    display: grid;
+    margin: 0;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr;
+  }
 }
-
-.App {
+.RestaurantFeed {
+  margin: 0 auto;
   display: grid;
-  margin: 0;
-  height: 100%;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 1fr;
-};
-
-.App > * {
-  flex: 1 1 auto;
+  grid-template-rows: 150px;
+  width: 100%;
+  max-width: 1800px;
+  @media screen and (min-width: $small-break) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (min-width: $large-break) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  h2,h3 {
+    display: flex;
+    margin: 0 15px 0 0;
+    justify-self: flex-end;
+  }
 }

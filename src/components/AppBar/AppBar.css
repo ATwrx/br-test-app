@@ -1,28 +1,21 @@
 .AppBar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
+  z-index: 100;
   height: 50px;
   background: #43E895;
   color: #FFFFFF;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  vertical-align: center; }
-
-.AppBarHeader {
-  font-size: 17px;
-  font-weight: 600;
-  margin: 0 0;
-  padding-top: 20px; }
-
-.BackButton, .AppBar img {
-  font-weight: 400;
-  width: 25px;
-  margin: 0 15px;
-  padding-top: 15px;
-  z-index: 11; }
-
-.BackButton {
-  color: #FFFFFF; }
+  text-align: center; }
+  .AppBar h1 {
+    display: inline-flex;
+    justify-self: center;
+    font-size: 17px;
+    font-weight: 600;
+    padding-top: 20px;
+    padding-left: 26px; }
+  .AppBar a {
+    display: flex;
+    float: right;
+    margin-right: 15px; }
+  .AppBar img {
+    margin-top: 16px;
+    width: 25px;
+    font-weight: 400; }
