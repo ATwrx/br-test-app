@@ -1,15 +1,12 @@
 .RestaurantFeed {
-  min-width: 300px;
+  max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-grow: 2;
-  justify-content: center; }
-  .RestaurantFeed .Restaurant {
-    display: flex;
-    height: 150px; }
-
-@media only screen and (max-width: 600) {
-  .Restaurant {
-    height: 350px; } }
+  display: grid;
+  grid-template-columns: 1fr; }
+  @media screen and (min-width: 600px) {
+    .RestaurantFeed {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 150px; } }
+  @media screen and (min-width: 1400px) {
+    .RestaurantFeed {
+      grid-template-columns: 1fr 1fr 1fr; } }

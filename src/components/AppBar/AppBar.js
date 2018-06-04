@@ -19,7 +19,7 @@ export default class AppBar extends Component {
     return (
       <div className="AppBar">
         {conditionalBackBtn(backButton)}
-        <h1 className='AppBarHeader' content='Lunch Tyme' inverted>
+        <h1 className='AppBarHeader' >
           Lunch Tyme
         </h1>
         <a onClick={toggle} >

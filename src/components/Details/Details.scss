@@ -1,26 +1,37 @@
-.Details > * {
-  display: flex;
-  margin: 0 0;
-}
-.DetailsMap {
-  height: 180px;
-  background: blue;
-}
-.DetailsHeaders {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  height: 60px;
-  background: #43E895;
-  color: #FFF;
-  padding: 16px 12px;
-  vertical-align: center;
-  font-size: 16px;
-}
+$top-margin : 50px;
 
-.DetailsSubheader {
-  display: block; 
-  text-align: left;
-  font-size: 12px;
+.DetailsDrawer {
+  margin-top: $top-margin;
+  background: #FFF;
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .DetailsMap {
+    height: 180px;
+  }
+  .DetailsHeaders {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 60px;
+    background: #43E895;
+    color: #FFF;
+    padding: 16px 12px;
+    vertical-align: center;
+    font-size: 16px;
+  }
+  .DetailsSubheader {
+    display: block;
+    text-align: left;
+    font-size: 12px;
+  }
+}
+.DetailsDrawerOverlay {
+  margin-top: $top-margin;
 }

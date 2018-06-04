@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, Route} from 'react-router-dom';
+import {Link, Route, Switch} from 'react-router-dom';
 
 import './LunchTyme.css';
 import {Loader} from 'semantic-ui-react';
@@ -8,39 +8,39 @@ import {Details, AppBar} from '../../components';
 const dataUrl = 'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json'; 
 
 const createFeed = (feed) => {
-  let arr = [];
-  const restaurants = feed.restaurants.map(restaurant => {
-      const {name, backgroundImageURL, category} = restaurant;
+  const arr = [];
+  const feedItems = feed.restaurants.map(feedItem => {
+      const {name, backgroundImageURL, category} = feedItem;
+      // NOTE: inline-styles needed for dynamic background img
       const style = {
-        background: `url(${backgroundImageURL})` 
+        background: `url(${backgroundImageURL}) no-repeat center` ,
+        backgroundSize: '100% auto',
+        width: '100%',
+        minHeight: '150px',
+        maxHeight: '250px',
+        display: 'flex',
+        alignItems: 'flex-start',
+        textAlign: 'left'
       };
-      let formattedName = restaurant.name.replace(/ +/g, '-');
-
-      // arr is where the data is stored,
-      //   and then matched with the 
-      //   corresponding feed item.
-      arr.push(restaurant);
-
-      // this returns back an array of
-      //   componenants that are rendered
-      //   from a map of the data.
+      // Used to add dynamic information to the url
+      let formatName = name.replace(/ +/g, '-');
+      // Push data to arr before creating feedItem
+      arr.push(feedItem);
+      // Template for feed_comps
       return (
         <Link
-          to={`/restaurant/${arr.length - 1}/${formattedName}`}
-          className="Restaurant"
+          to={`/restaurant/${arr.length - 1}/${formatName}`}
           key={arr.length - 1}
           style={style} 
-          alt={`Link to details for ${name}`}
+          replace
           >
-          <h2 className='RestaurantName'>{name}
-            <span className='RestaurantCategory' >{category}</span>
-          </h2>
+          <h2 className='FeedItemTitle' >{name}<span>{category}</span></h2>
         </Link>
       );
     });
-  // restaurants = feed_comps
-  // arr = feed_data
-  return [restaurants, arr]
+  // feedItems = feed_comps || feedData[0]
+  // arr = feed_data || feedData[1]
+  return [feedItems, arr]
 };
 
 export default class LunchTyme extends Component {
@@ -61,7 +61,7 @@ export default class LunchTyme extends Component {
 
   // This updates the state after
   //   when the async fetch completes.
-  feedUpdater(restaurants, dataArr) {
+  feedUpdater = (restaurants, dataArr) => {
     this.setState({
       feed_comps: restaurants,
       feed_data: dataArr,
@@ -75,9 +75,9 @@ export default class LunchTyme extends Component {
     const response = await fetch(dataUrl);
     const json = await response.json();
     // stateData calls for the creation of the feed_comps
-    const stateData = await createFeed(json);
+    const feedData = await createFeed(json);
     // update the state w/ the arr returned from stateData promise
-    await this.feedUpdater(stateData[0], stateData[1]);
+    await this.feedUpdater(feedData[0], feedData[1]);
   };
 
   render() {
@@ -90,18 +90,16 @@ export default class LunchTyme extends Component {
             ? <Loader content='Finding tasty lunches...' active/>
             : feed_comps}
         </div>
-        <div className='DetailsWrapper'>
           <Route
             path={'/restaurant/:id/:rest?'}
             render={({match}) => (
-            <React.Fragment>
-              <Details
-                data={feed_data[match.params.id]}
-                closeTab={this.toggleTabOpen}
-                className='Details'/>
-            </React.Fragment>
-          )}/>
-        </div>
+                <Details
+                  className='Details'
+                  data={feed_data[match.params.id]}
+                  isOpen={tabOpen}
+                  toggle={this.toggleTabOpen}
+                />
+            )}/>
       </React.Fragment>
     )
   }

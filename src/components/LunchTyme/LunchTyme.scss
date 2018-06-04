@@ -1,9 +1,18 @@
+$small-break: 600px;
+$large-break: 1400px;
+
 .RestaurantFeed {
-  min-width: 300px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-column: 300px 300px;
-  .Restaurant {
-    height: 150px;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: $small-break) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 150px;
+  }
+
+  @media screen and (min-width: $large-break) {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
