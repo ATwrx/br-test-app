@@ -1,15 +1,31 @@
-tml,
+html,
 body {
   font-family: "Avenir Next Demi Bold", "Roboto", "sans-serif";
   height: 100%;
-  margin: 0; }
+  padding: 0;
+  margin: 0 auto; }
+  html .App,
+  body .App {
+    display: grid;
+    margin: 0;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr; }
 
-.App {
-  display: flex;
-  margin: 0;
-  height: 100%;
-  flex-direction: column;
-  text-align: center; }
-
-.App > * {
-  flex: 1 1 auto; }
+.RestaurantFeed {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 150px;
+  width: 100%;
+  max-width: 1800px; }
+  @media screen and (min-width: 780px) {
+    .RestaurantFeed {
+      grid-template-columns: 1fr 1fr; } }
+  @media screen and (min-width: 1400px) {
+    .RestaurantFeed {
+      grid-template-columns: 1fr 1fr 1fr; } }
+  .RestaurantFeed h2, .RestaurantFeed h3 {
+    display: flex;
+    margin: 0 15px 0 0;
+    justify-self: flex-end; }
