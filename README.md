@@ -1,16 +1,4 @@
 # Sample App for BR-studios 
-## Technologies Used
-
-* React
-* React-Router
-* Webpack
-* es6 / babel
-* Google Map API
-* Sass / Scss
-* Motion, Hammer touch libraries (For the Details component)
-* Zeit.Now (Staging Deployments)
-
-Also, ***Semantic-UI-React*** for early styling prototypes
 
 ## Project Folder Structure (excluding npm folders)
 ```shell
@@ -38,6 +26,20 @@ Also, ***Semantic-UI-React*** for early styling prototypes
 ```
 NOTE: Files in /components that end with .scss are watched and compiled during development. 
 To create new components you simply make a named folder containing a .js and .scss of the same name.
+
+## Technologies Used
+
+* React
+* React-Router
+* Webpack
+* es6 / babel
+* Google Map API
+* Sass / Scss
+* Motion, Hammer touch libraries (For the Details component)
+* Zeit.Now (Staging Deployments)
+
+Also, ***Semantic-UI-React*** for early styling prototypes
+
 
 ### To install:
 
