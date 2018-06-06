@@ -2,8 +2,12 @@
 
 .DetailsMap {
   height: 180px;
+  width: 100%;
 }
 
+.DetailsAddress {
+  max-width: $address-max-width;
+}
 ul {
   display: flex;
   flex-direction: column;

@@ -1,5 +1,9 @@
 .DetailsMap {
-  height: 180px; }
+  height: 180px;
+  width: 100%; }
+
+.DetailsAddress {
+  max-width: 180px; }
 
 ul {
   display: flex;

@@ -1,0 +1,19 @@
+@import "../../assets/scss/_all.scss";
+.Pointer {
+  background: darken($green, 20%);
+  width: $map-pointer-width;
+  height: $map-pointer-height;
+  position: absolute;
+  left: -$map-pointer-width / 2;
+  top: -$map-pointer-width / 2;
+  border-radius: 25px;
+  text-align: center;
+  color: '#3f51b5';
+  font-size: 16px;
+  font-weight: 'bold';
+  padding: 4px;
+  img{
+    width: $map-pointer-width;
+    height: $map-pointer-height;
+  }
+}
