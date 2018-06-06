@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import Drawer from 'react-motion-drawer';
-import Map from './Map';
+import { GoogleMap } from '../../components';
 import './Details.css';
 
 //  === NOTES === 
@@ -16,18 +16,17 @@ import './Details.css';
 //  === Misc ===
 //  - Auto-redirects to '/' if no data is avaliable.
 //  - Mainly used for refresh() errors
+
 export default class Details extends Component {
   static defaultProps = { data: null }; 
 
-  componentDidMount() {
-    this.props.open()
-  };
-  componentWillUnmount() {
-    this.props.close()
-  }
-  componentWillUpdate(nextProps) {
+  componentDidMount() { this.props.open() };
+
+  componentWillUnmount() { this.props.close() }
+
+  componentWillUpdate(nextProps) { 
     this.props.data !== nextProps.data 
-      && this.props.open()
+      && this.props.open();
   };
 
   render() {
@@ -41,7 +40,11 @@ export default class Details extends Component {
         >
 
           <div className="DetailsMap">
-            <Map lat={data.location.lat} lon={data.location.lon} name={data.name} />
+            <GoogleMap 
+              center={[data.location.lat, data.location.lng]}
+              zoom={11}
+              name={data.name}
+            />
           </div>
 
           <div className="DetailsHeaders">
@@ -56,25 +59,26 @@ export default class Details extends Component {
           <ul className="DetailsInfo">
             <li>
               {data.location.formattedAddress.map(
-                detail => ( 
-                  <div>{detail}</div>
-                )
+                detail => ( <div> {detail} </div> )
               )}
             </li>
 
-            {data.contact !== null && <React.Fragment>
+            {data.contact !== null &&
+               <React.Fragment>
               <li>
                 <a href={`tel:${data.contact.phone}`}>
                   {data.contact.formattedPhone}
                 </a>
               </li>
 
-              {data.contact.twitter !== undefined && <li>
-                <a href={`https://twitter.com/${data.contact.twitter}`}>
-                  @{data.contact.twitter}
-                </a>
+              {data.contact.twitter !== undefined &&
+                <li>
+                  <a href={`https://twitter.com/${data.contact.twitter}`}>
+                    @{data.contact.twitter}
+                  </a>
               </li>}
             </React.Fragment>}
+
           </ul>
       </Drawer>
     )
