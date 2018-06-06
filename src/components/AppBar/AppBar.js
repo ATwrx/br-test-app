@@ -3,6 +3,10 @@ import './AppBar.css';
 import {icon_map, icon_back, icon_forward} from '../../assets';
 
 export default class AppBar extends Component {
+  static defaultProps = {
+    drawerHasOpened: false,
+    drawerIsOpen: false
+  }
   render() {
     const { drawerHasOpened, drawerIsOpen, close, open } = this.props;
     return (

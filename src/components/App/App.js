@@ -21,7 +21,7 @@ export default class App extends Component {
     drawerHasOpened: false,
     drawerIsOpen: false
   };
-  
+
   _handleOpenDrawer = () => {
     this.setState(
       this.state.drawerHasOpened 

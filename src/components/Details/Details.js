@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import Drawer from 'react-motion-drawer';
+import Map from './Map';
 import './Details.css';
 
 //  === NOTES === 
@@ -9,16 +10,15 @@ import './Details.css';
 // inconsistency crashes.
 //  - Twitter conditional is nested in a conditional.
 //  - More rules can be added with the same pattern.
-//
 //  === Lifecycle Methods ===
 //  - Lifecycle open() & close() and  Drawer.onChange()   do the same thing.
 // Meant to be a sanity check for   whether drawer is open or not.
-//
 //  === Misc ===
 //  - Auto-redirects to '/' if no data is avaliable.
 //  - Mainly used for refresh() errors
-
 export default class Details extends Component {
+  static defaultProps = { data: null }; 
+
   componentDidMount() {
     this.props.open()
   };
@@ -27,7 +27,7 @@ export default class Details extends Component {
   }
   componentWillUpdate(nextProps) {
     this.props.data !== nextProps.data 
-    && this.props.open()
+      && this.props.open()
   };
 
   render() {
@@ -39,7 +39,10 @@ export default class Details extends Component {
           drawerStyle={{ background: '#FFF', marginTop: '50px' }}
           onChange={ (val) => { val ? open() : close() }}
         >
-          <div className="DetailsMap">Map goes here</div>
+
+          <div className="DetailsMap">
+            <Map lat={data.location.lat} lon={data.location.lon} name={data.name} />
+          </div>
 
           <div className="DetailsHeaders">
             <h4>
@@ -52,17 +55,11 @@ export default class Details extends Component {
 
           <ul className="DetailsInfo">
             <li>
-              <div>
-                {data.location.address}
-              </div>
-              <div>
-
-                {`${data.location.city}, ${data.location.state} `} 
-
-                {data.location.postalCode !== undefined &&
-                  data.location.postalCode}
-
-              </div>
+              {data.location.formattedAddress.map(
+                detail => ( 
+                  <div>{detail}</div>
+                )
+              )}
             </li>
 
             {data.contact !== null && <React.Fragment>
