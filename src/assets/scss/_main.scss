@@ -1,0 +1,8 @@
+@import "./_constants.scss";
+html,
+body {
+  font-family: $font-stack;
+  height: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
