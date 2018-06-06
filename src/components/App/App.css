@@ -5,20 +5,6 @@ body {
   padding: 0;
   margin: 0 auto; }
 
-.loader {
-  margin: 0 0 2em;
-  height: 100px;
-  width: 20%;
-  text-align: center;
-  padding: 1em;
-  margin: 0 auto 1em;
-  display: inline-block;
-  vertical-align: top; }
-
-svg path,
-svg rect {
-  fill: #43E895; }
-
 .App {
   display: grid;
   padding-top: 50px;
@@ -40,3 +26,5 @@ svg rect {
       grid-template-columns: 1fr 1fr 1fr; } }
   .RestaurantFeed h2, .RestaurantFeed h3 {
     margin: 1.5px 12px; }
+  .RestaurantFeed a:hover {
+    opacity: 0.6; }
