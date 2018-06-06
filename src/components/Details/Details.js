@@ -43,7 +43,7 @@ export default class Details extends Component {
             <GoogleMap 
               center={[data.location.lat, data.location.lng]}
               zoom={11}
-              name={data.name}
+              restaurant={data.name}
             />
           </div>
 
@@ -59,7 +59,7 @@ export default class Details extends Component {
           <ul className="DetailsInfo">
             <li>
               {data.location.formattedAddress.map(
-                detail => ( <div> {detail} </div> )
+                detail => ( <div className="DetailsAddress"> {detail} </div> )
               )}
             </li>
 

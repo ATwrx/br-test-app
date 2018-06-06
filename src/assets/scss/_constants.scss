@@ -1,11 +1,13 @@
-// Fonts
+// === Fonts ===
 $font-stack: "'Avenir Next Demi Bold', Roboto, sans-serif";
-
-// Media Query Breaks
+// === Media Query Breaks ===
 $small-break: 780px;
 $large-break: 1400px;
-
-// Component Constants
+// === Component Constants ===
+// AppBar
 $appbar-height: 50px;
-$map-pointer-height: 25px;
-$map-pointer-width: 40px;
+// Details
+$address-max-width: 180px;
+// Map
+$map-pointer-height: 22px;
+$map-pointer-width: 22px;

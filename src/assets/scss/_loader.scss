@@ -1,5 +1,5 @@
 @import "./_colors.scss";
-
+// saved here for future custom loader
 .loader {
   margin: 0 0 2em;
   height: 100px;
@@ -10,7 +10,6 @@
   display: inline-block;
   vertical-align: top;
 }
-
 svg path,
 svg rect{
   fill: $green;

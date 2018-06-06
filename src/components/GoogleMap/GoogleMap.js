@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import GoogleMap from 'google-map-react';
+import {icon_lunch} from '../../assets';
 import './GoogleMap.css';
 
-const Pointer = ({ center }) =>( <React.Fragment>
+const Pointer = ({restaurant}) =>( <React.Fragment>
   <div className="Pointer" >
-    {center} 
-   </div> 
+    <img src={icon_lunch} alt="Hotdog Icon" /> 
+  </div> 
 </React.Fragment>);
 
 export default class Map extends Component {
@@ -22,8 +23,15 @@ export default class Map extends Component {
     }
   };
 
+  _roundCoords = (cord) => {
+    let tempCord = cord * 100,
+      roundedTempCord = Math.floor(tempCord),
+      newCord = roundedTempCord / 100;
+    return newCord;
+  }
+
   render() {
-    const { center, zoom } = this.props;
+    const { center, zoom, restaurant } = this.props;
     return(
          <GoogleMap
            bootstrapURLKeys={{key: "AIzaSyAP07RpvWhxJcSQYyBUWG4bnfeBMUnfgp8"}}  
@@ -31,7 +39,12 @@ export default class Map extends Component {
            defaultZoom={zoom}
            center={center}
           >
-            <Pointer center={center} lat={center.lat} lng={center.lng} />
+            <Pointer 
+              center={center}
+              lat={this._roundCoords(center[0])}
+              lng={this._roundCoords(center[1])}
+              restaurant={restaurant}
+            />
          </GoogleMap>
     );
   };
