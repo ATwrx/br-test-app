@@ -1,26 +1,16 @@
-$font-stack: 'Avenir Next Demi Bold', 'Roboto', 'sans-serif';
-$small-break: 780px;
-$large-break: 1400px;
-$white: #FFF;
-$topbar-height: 50px;
+@import "../../assets/scss/_main.scss";
+@import "../../assets/scss/_loader.scss";
 
-html,
-body {
-  font-family: $font-stack;
-  height: 100%;
-  padding: 0;
-  margin: 0 auto;
-  .App {
-    display: grid;
-    margin: 0;
-    height: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: 50px 1fr;
-  }
-}
-.RestaurantFeed {
-  margin: 0 auto;
+.App {
   display: grid;
+  padding-top: $appbar-height;
+  height: 100%;
+  grid-template-columns: 1fr;
+}
+
+.RestaurantFeed {
+  display: grid;
+  margin: 0 auto;
   grid-template-columns: 1fr;
   grid-template-rows: 150px;
   width: 100%;
@@ -31,9 +21,7 @@ body {
   @media screen and (min-width: $large-break) {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  h2,h3 {
-    display: flex;
-    margin: 0 15px 0 0;
-    justify-self: flex-end;
+  h2, h3 {
+    margin: 1.5px 12px;
   }
 }

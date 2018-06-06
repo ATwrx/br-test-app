@@ -1,9 +1,6 @@
-import {App} from './App';
-import {AppBar} from './AppBar';
-import {Details} from './Details';
-
-// These components can be found in /spares
-// import {Internets} from './Internets';
-// import {Footer} from './Footer';
+import App from './App/App';
+import AppBar from './AppBar/AppBar';
+import Details from './Details/Details';
+// import Footer from './Footer/Footer';
 
 export {App, AppBar, Details};
