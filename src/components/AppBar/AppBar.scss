@@ -1,5 +1,5 @@
 @import "../../assets/scss/_all.scss";
-$side-padding: 10px;
+
 .AppBar{
   height: $appbar-height;
   width: 100%;
@@ -14,16 +14,20 @@ $side-padding: 10px;
   text-align: center;
   align-items: center;
   z-index: 10001;
+  a:hover {
+      @include opacity-hover;
+    }
   h1 {
     font-size: 17px;
     font-weight: 600;
   }
   .DrawerButton {
-    padding-left: $side-padding;
+    padding-left: $appbar-side-padding;
     width: 22px;
+    
   }
   .MapButton {
-    margin-right: $side-padding;
+    margin-right: $appbar-side-padding;
     width: 28px;
   }
   img {

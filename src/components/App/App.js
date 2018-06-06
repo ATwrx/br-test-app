@@ -4,8 +4,6 @@ import './App.css';
 import {AppBar, Details} from '../../components';
 import {createFeed} from '../../utils';
 
-const dataUrl = 'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json';
-
 // === BUG ===
 // - Back button still shows on initial refresh
 // disapears with second refresh; most likely 
@@ -13,13 +11,31 @@ const dataUrl = 'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Serv
 // ===??FIX??=== 
 // - setInitialState() 
 
+const dataUrl = 'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json';
+
 export default class App extends Component {
   state = {
     feed_data: {},
     feed_comps: [],
     loading: true,
     drawerHasOpened: false,
-    drawerIsOpen: false
+    drawerIsOpen: false,
+    userLocation: {}
+  };
+
+  _getUserLocation = () => {
+    if ("geolocation" in navigator){
+      navigator.geolocation.getCurrentPosition(loc => {
+        this.setState({ 
+        userLocation: {
+          lng: loc.coords.longitude,
+          lat: loc.coords.latitude 
+          }
+        })
+      })
+    } else {
+      console.log('This browser doesn\'t support Geolocation')
+    }
   };
 
   _handleOpenDrawer = () => {
@@ -29,9 +45,11 @@ export default class App extends Component {
       : { drawerIsOpen: true, drawerHasOpened: true }
       );
   };
+
   _handleCloseDrawer = () => {
     this.setState({drawerIsOpen: false})
   }
+
   _afterFeedLoad = feedState => {
     this.setState(feedState);
   };
@@ -59,6 +77,7 @@ export default class App extends Component {
             drawerHasOpened={drawerHasOpened}
             close={this._handleCloseDrawer}
             open={this._handleOpenDrawer}
+            getPosition={this._getUserLocation}
           />
           <Route
             path="/"

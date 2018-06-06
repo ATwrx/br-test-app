@@ -4,11 +4,10 @@ import GoogleMap from 'google-map-react';
 import {icon_lunch} from '../../assets';
 import './GoogleMap.css';
 
-const Pointer = ({restaurant}) =>( <React.Fragment>
-  <div className="Pointer" >
-    <img src={icon_lunch} alt="Hotdog Icon" /> 
-  </div> 
-</React.Fragment>);
+const Pointer = ({restaurant}) => ( 
+  <div className="Pointer">
+   <img src={icon_lunch} alt="Hotdog Icon" />
+  </div>);
 
 export default class Map extends Component {
   static propTypes = {
@@ -17,10 +16,7 @@ export default class Map extends Component {
   };
   static defaultProps = {
     zoom: 8,
-    center: {
-      lat: 32,
-      lon: -97
-    }
+    center: [32, -97]
   };
 
   _roundCoords = (cord) => {
@@ -35,7 +31,6 @@ export default class Map extends Component {
     return(
          <GoogleMap
            bootstrapURLKeys={{key: "AIzaSyAP07RpvWhxJcSQYyBUWG4bnfeBMUnfgp8"}}  
-           defaultCenter={center}
            defaultZoom={zoom}
            center={center}
           >
