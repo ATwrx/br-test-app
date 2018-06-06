@@ -21,9 +21,7 @@ export default class Details extends Component {
   static defaultProps = { data: null }; 
 
   componentDidMount() { this.props.open() };
-
   componentWillUnmount() { this.props.close() }
-
   componentWillUpdate(nextProps) { 
     this.props.data !== nextProps.data 
       && this.props.open();
@@ -58,8 +56,8 @@ export default class Details extends Component {
 
           <ul className="DetailsInfo">
             <li>
-              {data.location.formattedAddress.map(
-                detail => ( <div className="DetailsAddress"> {detail} </div> )
+              { data.location.formattedAddress.map(
+                detail => ( <div className="DetailsAddress" key={detail[0]}>{detail} </div> )
               )}
             </li>
 
