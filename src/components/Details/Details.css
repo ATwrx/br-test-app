@@ -1,41 +1,25 @@
-.FakeBar {
-  background: #43E895;
-  float: right;
-  width: 100%;
-  height: 50px; }
-  .FakeBar a {
-    display: flex;
-    padding-top: 18px;
-    padding-left: 10px;
-    color: #FFF; }
-
 .DetailsMap {
-  height: 180px;
-  margin-top: 15px;
-  background: #FFF; }
+  height: 180px; }
 
 ul {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   list-style: none;
-  padding: 0; }
+  padding: 0px 0px; }
   ul li {
     margin: 12px 0 0 12px; }
 
 .DetailsHeaders {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  height: 60px;
   background: #43E895;
   color: #FFF;
-  padding: 16px 12px;
-  vertical-align: center;
-  font-size: 16px; }
-
-.DetailsSubheader {
-  display: block;
-  text-align: left;
-  font-size: 12px; }
+  height: 60px;
+  padding-left: 12px; }
+  .DetailsHeaders h4 {
+    padding-top: 15px;
+    font-size: 16px;
+    line-height: 1; }
+  .DetailsHeaders .DetailsSubheader {
+    display: block;
+    font-size: 12px;
+    padding-top: 3px; }

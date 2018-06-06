@@ -1,49 +1,46 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
-import {Icon} from 'semantic-ui-react';
 import Drawer from 'react-motion-drawer';
 import './Details.css';
 
-// NOTES: Some of the details are conditionally  rendered to prevent data
-// inconsistency crashes. Twitter conditional is nested in a conditional.
-// Auto-redirects to the homepage if no data is avaliable. TIP: More rules can
-// be added using the same pattern.
+//  === NOTES === 
+//  === Data consistency ===
+//  - Some of the details are conditionally rendered to prevent data
+// inconsistency crashes.
+//  - Twitter conditional is nested in a conditional.
+//  - More rules can be added with the same pattern.
+//
+//  === Lifecycle Methods ===
+//  - Lifecycle open() & close() and  Drawer.onChange()   do the same thing.
+// Meant to be a sanity check for   whether drawer is open or not.
+//
+//  === Misc ===
+//  - Auto-redirects to '/' if no data is avaliable.
+//  - Mainly used for refresh() errors
 
 export default class Details extends Component {
-  componentDidMount() { this.props.open() };
-  componentWillUnmount() { this.props.close() }
-
+  componentDidMount() {
+    this.props.open()
+  };
+  componentWillUnmount() {
+    this.props.close()
+  }
   componentWillUpdate(nextProps) {
-    this.props.data !== nextProps.data
-     && this.props.open()
+    this.props.data !== nextProps.data 
+    && this.props.open()
   };
 
   render() {
-    const {data, isOpen, open, close} = this.props;
+    const { data, isOpen, open, close } = this.props;
     return (data === null || data === undefined
-      ? (<Redirect to={{
-          pathname: '/',
-          state: {
-            drawerOpen: false
-          }}
-        }/>)
-      : (
-        <Drawer
+      ? <Redirect to='/' push /> 
+      : <Drawer
           open={isOpen}
-          drawerStyle={{background: '#FFF'}}
-          overlayColor={'rgb(0,0,0,0)'}
-          onChange={(val) => {
-          val
-            ? open()
-            : close()
-        }}>
-
-          <div className="FakeBar">
-            <a onClick={close} className='BackButton'>
-              <Icon name='chevron left' size='large'/>
-            </a>
-          </div>
+          drawerStyle={{ background: '#FFF', marginTop: '50px' }}
+          onChange={ (val) => { val ? open() : close() }}
+        >
           <div className="DetailsMap">Map goes here</div>
+
           <div className="DetailsHeaders">
             <h4>
               {data.name}
@@ -59,7 +56,12 @@ export default class Details extends Component {
                 {data.location.address}
               </div>
               <div>
-                {`${data.location.city}, ${data.location.state} ${data.location.postalCode}`}
+
+                {`${data.location.city}, ${data.location.state} `} 
+
+                {data.location.postalCode !== undefined &&
+                  data.location.postalCode}
+
               </div>
             </li>
 
@@ -77,7 +79,7 @@ export default class Details extends Component {
               </li>}
             </React.Fragment>}
           </ul>
-        </Drawer>
-      ))
+      </Drawer>
+    )
   }
 }
