@@ -1,6 +1,6 @@
 # Sample App for BR-studios 
 
-## Project Folder Structure (excluding npm folders)
+## Project Folder Structure (excluding npm)
 ```shell
 /br-test-app
 |──public                     # HTML base deployment + CDN Links
